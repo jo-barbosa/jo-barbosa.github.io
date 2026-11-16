@@ -357,6 +357,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .tile .tile-label:not(:first-child) { margin-top: 16px; }
 .big { font: 700 1.4rem "Bricolage Grotesque", sans-serif; }
 .tile-now ul { list-style: none; margin: 0; padding: 0; }
+.pulse.learn, .pulse.learn::after { background: var(--a2); }
 .tile-now li { display: flex; align-items: center; gap: 12px; padding: 8px 0; }
 .tile-now li + li { border-top: 1px solid var(--border); }
 .tile-now a { font-weight: 600; }
