@@ -1,7 +1,0 @@
-/* Option 3A – Editorial colors with Midnight fonts */
-body { font-family: Inter, system-ui, sans-serif; }
-h1, h2, h3, .role, .big, .stat strong, .email { font-family: "Space Grotesk", Inter, sans-serif; font-weight: 700; }
-.hero h1 { text-transform: uppercase; letter-spacing: -.05em; }
-.section h2 { font-weight: 700; letter-spacing: -.03em; }
-.role { font-weight: 500; }
-.kicker, .tile-label, .panel-when, .project-meta, .filters button, .chips button, .chips span, .tags li, .marquee-track span { font-family: "Fira Code", monospace; }
