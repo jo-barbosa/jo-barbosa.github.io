@@ -1,0 +1,30 @@
+/* Option 2 – Navy & Amber: deep navy, warm amber-to-coral accent, serif headings */
+:root:root:root {
+  --bg: #08121f;
+  --surface: #0f1d31;
+  --surface-2: #16273f;
+  --text: #eef2f8;
+  --muted: #9fb0c8;
+  --border: rgba(160, 190, 240, .14);
+  --a1: #ffb020;
+  --a2: #ff6a3d;
+  --accent: #ffb020;
+  --accent-soft: rgba(255, 176, 32, .13);
+  --on-accent: #08121f;
+  --glow: rgba(255, 150, 50, .12);
+  --blob-1: rgba(255, 150, 40, .24);
+  --blob-2: rgba(40, 110, 255, .3);
+  --blob-3: rgba(255, 90, 60, .16);
+  --dot: rgba(160, 190, 240, .1);
+  --code-bg: #060d18;
+  --ok: #3ddc97;
+  --shadow: 0 20px 50px -20px rgba(0, 0, 0, .7);
+  color-scheme: dark;
+}
+h1, h2, .big, .stat strong, .email, .panel h3, .project h3 { font-family: Fraunces, Georgia, serif; }
+.hero h1 { font-weight: 800; letter-spacing: -.03em; }
+.section h2 { font-weight: 700; letter-spacing: -.02em; }
+.kicker, .panel-when { color: var(--a1); }
+.tile, .project, .skill-group, .panel { background: linear-gradient(180deg, var(--surface-2), var(--surface)); }
+.tile:hover, .project:hover { border-color: rgba(255, 176, 32, .5); }
+.code-card .t { color: #ffcb6b; }

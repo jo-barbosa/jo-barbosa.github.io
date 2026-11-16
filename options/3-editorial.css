@@ -1,0 +1,55 @@
+/* Option 3 – Editorial: warm paper, black ink, thick borders, hard shadows, orange accent */
+:root:root:root {
+  --bg: #efe9dc;
+  --surface: #fffcf5;
+  --surface-2: #e8e1d1;
+  --text: #111111;
+  --muted: #4a463f;
+  --border: #111111;
+  --a1: #ff4d00;
+  --a2: #ff4d00;
+  --accent: #e64500;
+  --accent-soft: #ffd9c7;
+  --on-accent: #111111;
+  --glow: transparent;
+  --blob-1: transparent;
+  --blob-2: transparent;
+  --blob-3: transparent;
+  --dot: rgba(0, 0, 0, .14);
+  --code-bg: #111111;
+  --ok: #18a058;
+  --shadow: 5px 5px 0 #111111;
+  color-scheme: light;
+}
+body { font-family: "IBM Plex Sans", Inter, sans-serif; }
+h1, h2, h3, .role, .big, .stat strong, .email { font-family: "Archivo Black", "Archivo", sans-serif; font-weight: 400; }
+.hero h1 { text-transform: uppercase; letter-spacing: -.02em; }
+.section h2 { font-weight: 400; letter-spacing: -.01em; }
+.rotator, .stat strong { background: none; color: var(--accent); }
+.kicker, .tile-label, .panel-when, .project-meta, .filters button, .chips button, .chips span, .tags li, .marquee-track span { font-family: "IBM Plex Mono", monospace; }
+
+.nav, .tile, .project, .skill-group, .panel, .cta, .code-card, .badge, .arch, .node, .arch-stats div {
+  border: 2px solid #111;
+}
+.nav { border-radius: 10px; box-shadow: 4px 4px 0 #111; }
+.tile, .project, .skill-group, .panel, .cta, .arch { border-radius: 6px; }
+.code-card { border-radius: 6px; transform: none; box-shadow: 8px 8px 0 var(--a1); }
+.code-card:hover { transform: none; }
+.tile:hover, .project:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 #111; border-color: #111; }
+.btn { border: 2px solid #111; border-radius: 6px; background: var(--a1); box-shadow: 4px 4px 0 #111; }
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #111; }
+.btn-ghost { background: var(--surface); color: #111; }
+.btn-ghost:hover { border-color: #111; background: var(--surface); }
+.brand { border-radius: 6px; background: #111; color: #fff; }
+.filters button, .chips button { border: 2px solid #111; border-radius: 6px; }
+.filters button[aria-pressed="true"] { background: #111; color: #fff; }
+.tags li, .chips span { border-radius: 4px; }
+.marquee { border-block: 2px solid #111; background: #111; }
+.marquee-track span { color: #efe9dc; }
+.arch-core { background: var(--a1); }
+.journey-rail::before { background: #111; }
+.journey-rail button::before { border-color: #111; }
+.journey-rail button[aria-selected="true"]::before { background: var(--a1); border: 2px solid #111; box-shadow: none; }
+.cta { background: var(--a1); color: #111; }
+.cta > p, .cta .kicker { color: #111; }
+.cta .btn:not(.btn-ghost) { background: #111; color: #fff; }
