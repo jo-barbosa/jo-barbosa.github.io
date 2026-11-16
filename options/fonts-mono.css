@@ -1,0 +1,9 @@
+/* Option 3B – Editorial colors with Terminal fonts */
+body { font-family: Inter, system-ui, sans-serif; }
+h1, h2, h3, .role, .big, .stat strong, .email { font-family: "JetBrains Mono", "Fira Code", monospace; font-weight: 800; }
+.hero h1 { text-transform: none; font-size: clamp(2.8rem, 7.5vw, 5.4rem); letter-spacing: -.04em; }
+.section h2 { font-size: clamp(1.9rem, 4.4vw, 2.9rem); font-weight: 800; letter-spacing: -.03em; }
+.section h2::before { content: "> "; color: var(--accent); }
+.kicker::before { content: "// "; }
+.role { font-weight: 500; }
+.kicker, .tile-label, .panel-when, .project-meta, .filters button, .chips button, .chips span, .tags li, .marquee-track span { font-family: "JetBrains Mono", monospace; }
