@@ -1,23 +1,5 @@
 (() => {
-  const root = document.documentElement;
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Theme toggle (initial theme is set inline in <head> to avoid a flash)
-  const toggle = document.getElementById('theme-toggle');
-  const prefersDark = matchMedia('(prefers-color-scheme: dark)');
-  const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : prefersDark.matches;
-  const updateToggle = () => {
-    toggle.textContent = isDark() ? '☀' : '☾';
-    toggle.setAttribute('aria-label', isDark() ? 'Switch to light theme' : 'Switch to dark theme');
-  };
-  toggle.addEventListener('click', () => {
-    const next = isDark() ? 'light' : 'dark';
-    root.dataset.theme = next;
-    try { localStorage.setItem('theme', next); } catch (e) {}
-    updateToggle();
-  });
-  prefersDark.addEventListener('change', updateToggle);
-  updateToggle();
 
   // Rotating stack in the hero
   const rotator = document.getElementById('rotator');
@@ -33,15 +15,6 @@
       }, 350);
     }, 2600);
   }
-
-  // Cursor glow on cards
-  document.querySelectorAll('.glow').forEach(el => {
-    el.addEventListener('pointermove', e => {
-      const r = el.getBoundingClientRect();
-      el.style.setProperty('--mx', `${e.clientX - r.left}px`);
-      el.style.setProperty('--my', `${e.clientY - r.top}px`);
-    });
-  });
 
   // Project filter
   const cards = [...document.querySelectorAll('.project')];
