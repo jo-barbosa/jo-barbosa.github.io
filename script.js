@@ -121,6 +121,18 @@
   }, { rootMargin: '-40% 0px -55% 0px' });
   document.querySelectorAll('main section[id]').forEach(s => spy.observe(s));
 
+  // Quick contact dock: visible between the hero and the contact section
+  const dock = document.getElementById('dock');
+  const hero = document.querySelector('.hero');
+  const contact = document.getElementById('contact');
+  const inView = new Map([[hero, true], [contact, false]]);
+  const dockObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => inView.set(e.target, e.isIntersecting));
+    dock.classList.toggle('show', !inView.get(hero) && !inView.get(contact));
+  });
+  dockObserver.observe(hero);
+  dockObserver.observe(contact);
+
   // Reveal elements as they scroll into view
   const reveal = new IntersectionObserver(entries => {
     entries.forEach(e => {

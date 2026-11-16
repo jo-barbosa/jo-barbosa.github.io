@@ -645,3 +645,37 @@ h1, h2, h3, .role, .big, .stat strong, .email { font-family: "JetBrains Mono", m
 .cta { background: var(--a1); color: #111; }
 .cta > p, .cta .kicker { color: #111; }
 .cta .btn:not(.btn-ghost) { background: #111; color: #fff; }
+
+/* Quick contact dock */
+.dock {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 30;
+  display: flex;
+  gap: 10px;
+  transition: opacity .3s, translate .3s, visibility .3s;
+}
+.js .dock:not(.show) { opacity: 0; visibility: hidden; translate: 0 16px; }
+.dock-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border: 2px solid #111;
+  border-radius: 6px;
+  background: var(--surface);
+  color: #111;
+  font: 600 .9rem Inter, system-ui, sans-serif;
+  box-shadow: 4px 4px 0 #111;
+  transition: transform .2s, box-shadow .2s;
+}
+.dock-btn:hover { text-decoration: none; transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #111; }
+.dock-btn svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
+.dock-linkedin { background: #0a66c2; color: #fff; }
+.footer { padding-bottom: 110px; }
+@media (max-width: 560px) {
+  .dock { left: 16px; right: 16px; bottom: 16px; }
+  .dock-linkedin { flex: 1; }
+}
