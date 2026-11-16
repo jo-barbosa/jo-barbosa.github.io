@@ -7,5 +7,5 @@ Online CV, served at https://jo-barbosa.github.io. Plain HTML, CSS and JS, no bu
 - `Jorge_Barbosa_CV.pdf`: public PDF (no phone number), built from the base CV:
 
   ```bash
-  ./build-pdf.sh            # defaults to ../CV/CV_General
+  ./build-pdf.sh
   ```
