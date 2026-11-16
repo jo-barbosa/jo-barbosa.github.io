@@ -60,8 +60,8 @@
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Java</span><span>Spring Boot</span><span>Angular</span><span>TypeScript</span><span>PostgreSQL</span><span>Docker</span><span>GitHub Actions</span><span>Spring AI</span><span>pgvector</span><span>Three.js</span><span>JUnit 5</span><span>Hexagonal Architecture</span><span>DDD</span><span>TDD</span>
-      <span>Java</span><span>Spring Boot</span><span>Angular</span><span>TypeScript</span><span>PostgreSQL</span><span>Docker</span><span>GitHub Actions</span><span>Spring AI</span><span>pgvector</span><span>Three.js</span><span>JUnit 5</span><span>Hexagonal Architecture</span><span>DDD</span><span>TDD</span>
+      <span>Java</span><span>Spring Boot</span><span>Angular</span><span>TypeScript</span><span>PostgreSQL</span><span>Docker</span><span>GitHub Actions</span><span>Spring AI</span><span>pgvector</span><span>Three.js</span><span>JUnit 5</span><span>Playwright</span><span>Hexagonal Architecture</span><span>DDD</span><span>TDD</span>
+      <span>Java</span><span>Spring Boot</span><span>Angular</span><span>TypeScript</span><span>PostgreSQL</span><span>Docker</span><span>GitHub Actions</span><span>Spring AI</span><span>pgvector</span><span>Three.js</span><span>JUnit 5</span><span>Playwright</span><span>Hexagonal Architecture</span><span>DDD</span><span>TDD</span>
     </div>
   </div>
 </header>
@@ -165,12 +165,13 @@
           <summary>More details</summary>
           <ul>
             <li>Building a Spring Boot 4 / Java 25 backend with Hexagonal Architecture and DDD, exposing REST endpoints documented with OpenAPI and secured with stateless JWT and role-based access control.</li>
-            <li>Automating quality gates with GitHub Actions CI/CD and shared pre-push Git hooks running backend (JUnit) and frontend (Vitest) test suites.</li>
+            <li>Testing the SPA end to end with Playwright against the real API and PostgreSQL, in GitHub Actions CI and before each deployment, alongside JUnit and Vitest suites in shared pre-push Git hooks.</li>
+            <li>Deploying with Docker Compose and nginx on a Debian VM through a systemd timer, validating each version in a throwaway stack with Postman and Playwright before release, with a rollback script.</li>
             <li>Working with AI coding agents (LLMs) in a spec-first workflow (brainstorm, write a plan, then implement), using agent skills and MCP servers; shared this workflow with the team.</li>
           </ul>
         </details>
         <ul class="tags">
-          <li>Angular</li><li>TypeScript</li><li>Three.js</li><li>Java</li><li>Spring Boot</li><li>PostgreSQL</li><li>Docker</li><li>JWT</li><li>OpenAPI</li><li>GitHub Actions</li><li>JUnit</li><li>Vitest</li><li>Hexagonal Architecture</li><li>DDD</li>
+          <li>Angular</li><li>TypeScript</li><li>Three.js</li><li>Java</li><li>Spring Boot</li><li>PostgreSQL</li><li>Docker</li><li>nginx</li><li>Playwright</li><li>JWT</li><li>OpenAPI</li><li>GitHub Actions</li><li>JUnit</li><li>Vitest</li><li>Hexagonal Architecture</li><li>DDD</li>
         </ul>
       </article>
 
@@ -302,6 +303,7 @@
         <ul class="chips">
           <li><button type="button" data-tag="Docker">Docker (Compose)</button></li>
           <li><button type="button" data-tag="GitHub Actions">GitHub Actions (CI/CD)</button></li>
+          <li><button type="button" data-tag="nginx">nginx</button></li>
           <li><button type="button" data-tag="AWS">AWS (EC2)</button></li>
           <li><span>Maven</span></li>
           <li><span>Git</span></li>
@@ -314,6 +316,7 @@
           <li><button type="button" data-tag="JUnit">JUnit 5</button></li>
           <li><span>Mockito</span></li>
           <li><button type="button" data-tag="Vitest">Vitest</button></li>
+          <li><button type="button" data-tag="Playwright">Playwright (E2E)</button></li>
           <li><span>Postman (API integration tests)</span></li>
           <li><button type="button" data-tag="TDD">Test-Driven Development (TDD)</button></li>
         </ul>
