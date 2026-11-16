@@ -1,5 +1,6 @@
 (() => {
   const root = document.documentElement;
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Theme toggle (initial theme is set inline in <head> to avoid a flash)
   const toggle = document.getElementById('theme-toggle');
@@ -17,6 +18,30 @@
   });
   prefersDark.addEventListener('change', updateToggle);
   updateToggle();
+
+  // Rotating stack in the hero
+  const rotator = document.getElementById('rotator');
+  const words = ['Java & Spring Boot', 'Angular & TypeScript', 'Spring AI & pgvector', 'Docker & GitHub Actions'];
+  if (!reducedMotion) {
+    let i = 0;
+    setInterval(() => {
+      rotator.classList.add('out');
+      setTimeout(() => {
+        i = (i + 1) % words.length;
+        rotator.textContent = words[i];
+        rotator.classList.remove('out');
+      }, 350);
+    }, 2600);
+  }
+
+  // Cursor glow on cards
+  document.querySelectorAll('.glow').forEach(el => {
+    el.addEventListener('pointermove', e => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', `${e.clientX - r.left}px`);
+      el.style.setProperty('--my', `${e.clientY - r.top}px`);
+    });
+  });
 
   // Project filter
   const cards = [...document.querySelectorAll('.project')];
@@ -36,7 +61,7 @@
     filterButtons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tag === tag)));
 
     if (tag === 'all') {
-      status.textContent = `Showing all ${shown} projects`;
+      status.textContent = `${shown} projects`;
     } else {
       status.textContent = `${shown} project${shown === 1 ? '' : 's'} using ${tag}`;
       const reset = document.createElement('button');
@@ -48,23 +73,62 @@
   };
 
   filterButtons.forEach(b => b.addEventListener('click', () => applyFilter(b.dataset.tag)));
-
-  // Skill chips jump to the projects that use them
   document.querySelectorAll('.chips button').forEach(b => {
     b.addEventListener('click', () => {
       applyFilter(b.dataset.tag);
       document.getElementById('projects').scrollIntoView();
     });
   });
-
   applyFilter('all');
+
+  // Journey tabs
+  const tabs = [...document.querySelectorAll('.journey-rail [role="tab"]')];
+  const selectTab = tab => {
+    tabs.forEach(t => {
+      const selected = t === tab;
+      t.setAttribute('aria-selected', String(selected));
+      t.tabIndex = selected ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !selected;
+    });
+  };
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => selectTab(tab));
+    tab.addEventListener('keydown', e => {
+      const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+      if (!step) return;
+      const next = tabs[(i + step + tabs.length) % tabs.length];
+      selectTab(next);
+      next.focus();
+    });
+  });
+  selectTab(tabs[1]);
+
+  // Count-up stats
+  const counters = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      counters.unobserve(e.target);
+      const el = e.target;
+      const end = Number(el.dataset.count);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const start = performance.now();
+      const tick = now => {
+        const p = Math.min((now - start) / 1200, 1);
+        el.textContent = prefix + Math.round(end * (1 - Math.pow(1 - p, 3))) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.6 });
+  if (!reducedMotion) document.querySelectorAll('[data-count]').forEach(el => counters.observe(el));
 
   // Copy email
   const copyBtn = document.getElementById('copy-email');
   copyBtn.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(copyBtn.dataset.email);
-      copyBtn.textContent = 'Copied';
+      copyBtn.textContent = 'Copied ✓';
     } catch (e) {
       copyBtn.textContent = 'Copy failed';
     }
