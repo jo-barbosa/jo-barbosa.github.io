@@ -278,7 +278,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .tile .tile-label:not(:first-child) { margin-top: 16px; }
 .big { font: 700 1.4rem "JetBrains Mono", sans-serif; }
 .tile-now ul { list-style: none; margin: 0; padding: 0; }
-.pulse.learn, .pulse.learn::after { background: var(--a2); }
 .tile-now li { display: flex; align-items: center; gap: 12px; padding: 8px 0; }
 .tile-now li + li { border-top: 1px solid var(--border); }
 .tile-now a { font-weight: 600; }
@@ -553,7 +552,7 @@ details li { margin-bottom: 8px; font-size: .95rem; }
 }
 
 /* Interests */
-.interests { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.interests { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .interest { display: flex; flex-direction: column; }
 .interest h3 { margin-bottom: 12px; font-size: 1.4rem; font-weight: 800; }
 .tile .interest-status {
